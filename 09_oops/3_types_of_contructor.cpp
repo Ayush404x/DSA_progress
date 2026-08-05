@@ -4,27 +4,34 @@ using namespace std;
 
 class Teacher
 {
-    // Acccess modifiers of theree types 1.public 2.private 3.protected
-private:
-    // Private Property
-    double salary;
-
 public:
     string name;
     string dept;
     string subject;
+    double salary;
     // Paramaterized constructor
-    Teacher(string n, string d, string s, double sal)
+    Teacher(string name, string dept, string subject, double salary)
     {
-        name = n;
-        dept = d;
-        subject = s;
-        salary = sal;
+        this->name = name;
+        this->dept = dept;
+        this->subject = subject;
+        this->salary = salary;
     }
     // non parameterized constructor
     Teacher()
     {
         dept = "Computer science";
+    }
+    // copy constructor
+    Teacher(Teacher &orgobj){//pass by reference
+        cout<<"I am a constructor copy/copy ";
+        this->name = orgobj.name;
+        this->dept = orgobj.dept;
+        this->subject = orgobj.subject;
+        this->salary = orgobj.salary;
+        
+
+
     }
     string name;
     string dept;
@@ -65,7 +72,9 @@ public:
 
 int main()
 {
-    Teacher t1("Ayush", "CS", "C++", 250000);
-    t1.getinfo();
+   Teacher t1("Ayush", "CS", "C++", 250000);
+    //t1.getinfo();
+    Teacher t2(t1);//efault copy constructor call hogaya
+    t2.getinfo();
     return 0;
 }
