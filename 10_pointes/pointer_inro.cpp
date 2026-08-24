@@ -6,8 +6,8 @@ int main()
     // cout<<&x;
     // cout<<endl;
 
-    float x =5;
-    float *p = &x;
-    cout<<&x<<endl;
+    int x =5;
+    int *p = &x;
+    //cout<<x<<endl;
     cout<<p;
 }
