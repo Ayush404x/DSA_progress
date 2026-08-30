@@ -4,20 +4,10 @@ using namespace std;
 
 int main()
 { 
-    int n;
-    cin>>n;
-    char str[n];
-    for(int i = 0 ; i<n;i++)
-    {
-        cin>>str[i];
-    }
-    for(int i =0;str[i]!=0;i++)
-    {
-        if(i%2 == 0)
-        {
-        str[i] = 'a';
-        }
-    }
-    cout<<str;
 
+    string str;
+    cout<<"Enter the string";
+    cin>>str;
+    int n = str.length();
+    cout<<str.substr(n/2);
 }
