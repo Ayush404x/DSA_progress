@@ -24,6 +24,3 @@ int main()
     cin>>b;
     cout<<"raised to the  "<<b<<" is "<<powrec(a,b);
 }
-
- 
-
