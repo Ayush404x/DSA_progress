@@ -1,25 +1,48 @@
-#include<iostream>
-#include<string>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-void printsubset(string ans,string original, vector<string>&v,bool flag){
-    if(original =="")
-{
-    //cout<<ans<<endl;
-    v.push_back(ans);
-    return;
+
+void storeSubset(string ans, string original, vector<string>& v, bool flag) {
+    if (original == "") {
+        v.push_back(ans);
+        return;
+    }
+
+    char ch = original[0];
+
+    if (original.length() == 1) {
+        if (flag == true)
+            storeSubset(ans+ch, original.substr(1), v, true);
+
+        storeSubset(ans , original.substr(1), v, true);
+        return ;//imp because niche ki doo condition na chale
+    }
+
+    char dh = original[1];
+
+    if (ch == dh) {
+        if (flag == true)//this is duplicate 
+            storeSubset(ans+ch, original.substr(1), v, true);
+
+        storeSubset(ans , original.substr(1), v, false);
+    }
+    else 
+    {
+       if (flag == true)
+            storeSubset(ans+ch, original.substr(1), v, true);
+
+        storeSubset(ans , original.substr(1), v, false);
+    } 
 }
-char ch = original[0];
-char dh = original[1];
-printsubset(ans+ch,original.substr(1),v);
-printsubset(ans,original.substr(1),v);
-}
-int main()
-{
-    string str = "aab";
+
+int main() {
+    string str = "aaab";
     vector<string> v;
-    printsubset("",str,v,true);
-    for(int i = 0;i<v.size();i++){
-        cout<<v[i]<<endl;
+
+    storeSubset("", str, v, true);
+
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << endl;
     }
 }
