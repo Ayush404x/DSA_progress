@@ -2,7 +2,7 @@
 #include<string>
 #include<vector>
 using namespace std;
-void printsubset(string ans,string original, vector<string>&v){
+void printsubset(string ans,string original, vector<string>&v,bool flag){
     if(original =="")
 {
     //cout<<ans<<endl;
@@ -10,15 +10,16 @@ void printsubset(string ans,string original, vector<string>&v){
     return;
 }
 char ch = original[0];
+char dh = original[1];
 printsubset(ans+ch,original.substr(1),v);
 printsubset(ans,original.substr(1),v);
 }
 int main()
 {
-    string str = "abc";
+    string str = "aab";
     vector<string> v;
-    printsubset("",str,v);
-    for(string ele :v){
-        cout<<ele<<endl;
+    printsubset("",str,v,true);
+    for(int i = 0;i<v.size();i++){
+        cout<<v[i]<<endl;
     }
 }
