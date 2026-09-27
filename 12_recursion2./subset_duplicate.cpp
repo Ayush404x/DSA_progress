@@ -10,7 +10,6 @@ void storeSubset(string ans, string original, vector<string>& v, bool flag) {
     }
 
     char ch = original[0];
-
     if (original.length() == 1) {
         if (flag == true)
             storeSubset(ans+ch, original.substr(1), v, true);
